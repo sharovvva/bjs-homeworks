@@ -24,17 +24,6 @@ function getResult(a,b,c){
     }
     return result;
 
-
-   /* if ( d == 0) {
-        result[0] = (-b + Math.sqrt(d)) / 2*a;
-    } else if (d > 0) {
-        result[0] = (-b + Math.sqrt(d)) / 2*a;
-        result[1] = (-b - Math.sqrt(d)) / 2*a;
-    } else {
-        result = null;
-    }
-    return result; */
-
 }
 
 function getAverageMark(marks){
@@ -64,16 +53,21 @@ function getAverageMark(marks){
 }
 
 function askDrink(name,dateOfBirthday){
-    year = dateOfBirthday.getFullYear();
+    let year = dateOfBirthday.getFullYear();
+    let today = new Date().getFullYear();
+    let yearsOld = today - year;
+    let result;
 
-    let today = new Date();
-    yearsOld = year - today;
+    //let yearsOld = new Date().getFullYear() -  dateOfBirthday.getFullYear();
+   
 
     if (yearsOld >= 18) {
-        console.log(“Не желаете ли олд-фэшн, ${`name`}”);
+        result = `Не желаете ли олд-фэшн, ${name}?`;
+        return result;
     } else {
-        console.log(“Сожалею, ${`name`}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!”);
-    }
+        result = `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
+        return result;
+    } 
     
-    return yearsOld;
+    return askDrink;
 }
