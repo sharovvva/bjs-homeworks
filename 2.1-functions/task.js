@@ -20,8 +20,6 @@ function getSolutions(a, b, c) {
     }
 }
 
-console.log(getSolutions(2, 4, 6))
-
 function showSolutionsMessage(a, b, c){
     let result = getSolutions(a, b, c);
     console.log(`Вычисляем корни квадратного уравнения ${a}x² + ${b}x + ${c}`);
@@ -36,6 +34,35 @@ function showSolutionsMessage(a, b, c){
 }
 
 //2nd task
+
+/*function getAverageScore(data) {
+    let marks = [];
+    for (prop in data) {
+        marks.push(data[prop]);
+    }
+    if (marks != []) {
+        return marks;
+    }
+
+}
+
+function getAverageMark(marks) {
+   marks = getAverageScore(data);
+   //let sumOfMarks;
+   for (key in marks){
+    if (marks[key] = []){
+        return 0;
+    } else {
+        return marks[key].reduce((sum, current) => sum + current /  marks[key].length , 0);
+    }
+   }
+   
+}
+console.log(getAverageScore(data));
+console.log(getAverageMark(marks));
+
+
+
 function getAverageScore(data) {   //average for each subject
     for (let prop in data){
         let summ = data.prop.reduce((sum, current) => sum + current, 0);
@@ -53,19 +80,71 @@ function getAverageScore(data) {   //average for each subject
         let sumAllMarks = averageMark.prop.reduce((sum, current) => sum + current, 0);
         let average = sumAllMarks / ppropertyName.length;
         return average;
+
+         marks = data;
+    for (let prop in marks) {
+        let sumMarks = marks.prop.reduce((sum, current) => sum + current, 0); 
+        marks.prop = sumMarks / marks.prop.length;
+        return marks; 
     }
-}*/
+    }
+}
 function getAverageMark(marks) {
     for (let i = 0; i <= marks.length; i++) {
         
     }
+} */
+
+function getAverageMark(marks) {
+    let summ;
+    if (marks != 0) {
+        summ = marks.reduce((sum, current) => sum + current, 0);
+        return averMarks = summ / marks.length;
+    } else {
+        return averMarks = 0;
+    };
+}
+//console.log(getAverageMark([4, 5, 5, 4]))
+
+function getAverageScore(data) {
+    //let allMarks = getAverageMark(marks); 
+    //let marks;
+    let average; 
+    let value;
+    for (prop in data) {
+       value = data[prop]; 
+       value = getAverageMark(value);//??
+    };
+    if (data != 0) {
+        average = value.reduce((sum, current) => sum + current, 0);
+        data.average = average / Object.keys(data).length;
+        return data;
+        } else {
+        return data.average = 0;
+    }
+    
 }
 
-function foo() {
-    const a = {a: 1};
+//3rd task
 
-    console.log(a)
+function getDecodedValue(secret){
+    if (secret === 0) {
+        return "Родриго";
+    } else {
+        return "Эмильо";
+    }
 }
 
-foo();
+function getPersonData(secretData){
+    let decodedValue = getDecodedValue(secret);
+    let obj = {};
+    if (decodedValue === "Родриго" || decodedValue === "Эмильо" ) {
+        obj.firstName = decodedValue;
+    };
+    if (decodedValue ==="Родриго" || decodedValue === "Эмильо" ){
+        obj.lastName = decodedValue;
+    };
+    return obj;
+ }
+
 
