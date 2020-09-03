@@ -1,13 +1,5 @@
 String.prototype.isPalindrome = function () {
     let string = this.toLowerCase();
-    //let revStr= this.toLowerCase().split('').reverse().join('');
-    //this.string = string;
-    //this.revStr = revStr;
-    /*if (this.string === this.revStr.split('').reverse().join('')) {
-        return true;
-    } else {
-        return false;
-    }  */
     for (let i = 0; i < string.length; i++) {
         if (string[i] === string[string.length - 1 -i]) {
             return true;
