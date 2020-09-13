@@ -179,7 +179,7 @@ if (typeof(marks) == 'undefined') {
 class StudentLog {
     constructor(name){
         this.name = name;
-        let marks = {};
+        this.marks = {};
     }
 
     getName(){
@@ -190,12 +190,13 @@ class StudentLog {
 
     addGrade(grade, subject){
             //let marks = {};
-                if (typeof(grade) == "number" && typeof(subject) == "string" && grade > 0 && grade <= 5) {
-                    this.marks['subject'] = grade;
-                    return this.marks.length;
-                } else if (typeof(grade) != Number || grade > 5) {
+            let gradeNum = Number(grade);
+                if (gradeNum > 0 && gradeNum <= 5) {
+                    this.marks[subject].push(grade);
+                    return this.marks[subject].length;
+                } else {
                     console.log(`Вы пытались поставить оценку ${grade} по предмету "math". Допускаются только числа от 1 до 5.`);
-                    return this.marks.length;
+                    return this.marks[subject].length;
                 }
             }
             /*if (typeof(grade) == "number" && typeof(subject) == "string" && grade > 0 && grade <= 5) {
@@ -211,31 +212,29 @@ class StudentLog {
     
 
     getAverageBySubject(subject){
-        let result;
-        for (let s in this.marks) {
-            if (s == subject) {
-                result = this.marks.reduce(function(sum, current) {
-                    return sum + current;
-                }, 0);
-            } else {
-                return null;
-            }
+        //let result;
+        if (!this.marks[subject]) {
+            return 0; 
+        } else {
+            let sum = 0;
+            this.marks[subject].forEach(mark => {
+                sum += mark;
+            });
+            return sum / this.marks[subject].length;
         }
     }
 
     getTotalAverage(){
         let average;
         let res;
-        for (let mark in this.marks) {
-            if (this.marks != 0) {
-                res = this.marks.reduce(function(sum, current)  {
-                    return sum + current;
-                }, 0);
-            } else {
-                return null;
-            }
+        for (mark in this.mark[subject]) {
+            res = getAverageBySubject(mark);
         }
-        average = res / this.marks.length;
+    
+        //for (let mark in this.marks[subject]) {
+        
+        //}
+        average = res / this.marks[subject].length;
         return average;
     }
 }
