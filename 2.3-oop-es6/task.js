@@ -179,26 +179,36 @@ if (typeof(marks) == 'undefined') {
 class StudentLog {
     constructor(name){
         this.name = name;
+        let marks = {};
     }
 
     getName(){
         return this.name;
     }
 
+    //let marks = {};
+
     addGrade(grade, subject){
-        let marks = {};
-        if (typeof(marks) !== null) {
-            if (typeof(grade) == "number" && typeof(subject) == "string" && grade > 0 && grade <= 5) {
+            //let marks = {};
+                if (typeof(grade) == "number" && typeof(subject) == "string" && grade > 0 && grade <= 5) {
+                    this.marks['subject'] = grade;
+                    return this.marks.length;
+                } else if (typeof(grade) != Number || grade > 5) {
+                    console.log(`Вы пытались поставить оценку ${grade} по предмету "math". Допускаются только числа от 1 до 5.`);
+                    return this.marks.length;
+                }
+            }
+            /*if (typeof(grade) == "number" && typeof(subject) == "string" && grade > 0 && grade <= 5) {
                 marks['subject'] = grade;
                 return marks.length;
             } else if (typeof(grade) != Number || grade > 5) {
                 console.log(`Вы пытались поставить оценку ${grade} по предмету "math". Допускаются только числа от 1 до 5.`);
                 return marks.length;
-            }
-        } else {
+            }*/
+        /*} else {
             marks = {};
-        } 
-    }
+        }*/ 
+    
 
     getAverageBySubject(subject){
         let result;
