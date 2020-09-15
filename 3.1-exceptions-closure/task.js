@@ -18,8 +18,8 @@ function validateCount(m) {
         return e;
     }
 }
-validateCount("012")
-console.log(validateCount("012"))
+//validateCount("012")
+//console.log(validateCount("012"))
 
 //2
 
@@ -28,9 +28,11 @@ class Triangle{
         this.a = a;
         this.b = b;
         this.c = c;
-        if ((this.a + this.b) < this.c || (this.b + this.c) < this.a || (this.a + this.c) < this.b){
-            const error = new Error("Треугольник с такими сторонами не существует");
-            throw error;
+        try {
+            (this.a + this.b) > this.c || (this.b + this.c) > this.a || (this.a + this.c) > this.b;
+        } catch(e) {
+            e = new Error("Треугольник с такими сторонами не существует");
+            throw e;
         }
         //return this.a, this.b, this.c
     }
@@ -49,24 +51,30 @@ class Triangle{
 }
 
 //let obj = {};
+const trian = new Triangle(2, 5, 5)
 
 function getTriangle(a, b, c) {
     try {
-        return trian;
+        let obj = trian(a, b, c);
+        return obj;
     } catch(e) {
-        let textError = function() {
+        let er = function() {
             const newEr = new Error("Ошибка! Треугольник не существует");
-            return newEr;
+            throw newEr;
+            //return newEr;
         };
-        let objError = {
-            getPerimeter : textError,
-            getArea : textError
+        obj = {
+            getPerimeter : er,
+            getArea : er
         }
-        return objError;
+        console.log(obj)
+        return obj;
+        
     }
 }
 
-const trian = new Triangle(2, 2, 5)
+
 console.log(trian.getPerimeter());
 console.log(trian.getArea());
-getTriangle(2, 2, 5)
+getTriangle(2, 5, 5)
+
